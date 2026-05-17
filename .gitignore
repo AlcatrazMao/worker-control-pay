@@ -1,0 +1,19 @@
+# Environment variables (NO COMMIT)
+.env
+.env.local
+.env.*.local
+
+# Cloudflare
+.wrangler/
+dist/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
