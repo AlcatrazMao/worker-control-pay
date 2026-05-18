@@ -1,9 +1,0 @@
-name = "pagezone-r2-proxy"
-compatibility_date = "2024-12-01"
-main = "src/r2-proxy.js"
-
-account_id = "152595c1bd678c6eb1ccb2aa4b1e2643"
-
-[[kv_namespaces]]
-binding = "GUARDIAN_KV"
-id      = "36c2ec8740c442b88e31ef8f42d728f6"

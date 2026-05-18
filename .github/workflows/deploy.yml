@@ -30,7 +30,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: deploy --config wrangler.guardian.toml --verbose
+          command: deploy --verbose
 
       - name: Verify deployments
         run: |

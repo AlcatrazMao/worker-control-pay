@@ -1,14 +1,11 @@
 {
-  "name": "pagezone-gateway",
+  "name": "r2-guardian",
   "version": "1.0.0",
-  "description": "Gateway worker con rate limiting y control de usage",
-  "main": "src/index.ts",
+  "description": "Guardian worker — circuit breaker para Workers y R2",
+  "main": "src/guardian.js",
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev"
-  },
-  "dependencies": {
-    "@cloudflare/workers-types": "^4.20241127.0"
   },
   "devDependencies": {
     "wrangler": "^4.0.0"
