@@ -10,6 +10,7 @@ export interface Env {
   ASSETS: R2Bucket;
   RATE_LIMIT: KVNamespace;
   STATS: KVNamespace;
+  GUARDIAN_KV: KVNamespace;
 }
 
 const RATE_LIMIT_DAILY = 1000; // Max requests por IP por día
@@ -210,6 +211,15 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+
+    // Circuit breaker: el guardian activa este flag cuando Workers supera el umbral
+    const workersBloqueado = await env.GUARDIAN_KV.get('workers_freno');
+    if (workersBloqueado === 'true') {
+      return new Response(JSON.stringify({ error: 'Service temporarily unavailable' }), {
+        status: 503,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
     // Rate limiting
     if (path !== '/api/health') {

@@ -13,3 +13,7 @@ bucket_name = "pagezone-assets"
 
 # KV para rate limiting y stats
 # [[kv_namespaces]] - se crea automáticamente en el primer deploy
+
+[[kv_namespaces]]
+binding = "GUARDIAN_KV"
+id      = "36c2ec8740c442b88e31ef8f42d728f6"
